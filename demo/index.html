@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <script src="./../blob.js"></script>
+  </head>
+  <body>
+    <div id="root">
+    </div>
+  </body>
+  <script>
+    // get a blob SVG element
+    const blob = generateBlob('hello world');
+    // drop it into the desired container
+    const root = document.getElementById("root");
+    root.appendChild(blob); 
+  </script>
+</html>
