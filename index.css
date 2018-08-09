@@ -1,0 +1,24 @@
+svg {
+  position: absolute;
+  top: 0;
+  z-index: -10;
+}
+
+body {
+  font-family: arial;
+}
+
+.blob-box {
+  border: 3px solid gray;
+  margin: 10px;
+  padding: 10px;
+  background: rgba(255, 255, 255, .75);
+}
+
+.button {
+  display: inline-block;
+  border: 2px solid black;
+  padding: 6px;
+  background: rgba(240, 240, 240, .95);
+  cursor: pointer;
+}

@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="./../index.css">
+    <script src="./../blob.js"></script>
+  </head>
+  <body>
+    <div id="root">
+      <div class="custom-blob blob-box">
+        <p>Make a custom shape</p>
+        <input type="text" id="color-input" placeholder="enter a color name"></input>
+        <select id="points-input">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select>
+        <input type="checkbox" id="curvy-input" value="curvy" />
+        <label for="curvy">curvy shape</label>
+        <div id="custom-blob" class="button">create shape!</div>
+      </div>
+      <div class="blob-box random-blob-creator">
+        <p>Make a random shape</p>
+        <div id="random-blob" class="button">random shape!</div>
+      </div>
+    </div>
+  </body>
+  <script>
+    // get a blob SVG element
+    const blob = generateBlob();
+    // drop it into the desired container
+    const root = document.getElementById("root");
+    root.appendChild(blob); 
+    const customShapeButton = document.getElementById("custom-blob");
+    customShapeButton.addEventListener("click", function(){
+      const  colorInput = document.getElementById("color-input");
+      const pointNumberInput = document.getElementById("points-input");
+      const isCurvyInput = document.getElementById("curvy-input");
+      const color = colorInput.value;
+      const points = pointNumberInput.value;
+      const isCurvy = isCurvyInput.value;
+      const newBlob = generateBlob({ color: color, numberOfPoints: points, isCurvy: isCurvy });
+      const currentBlob = document.getElementsByTagName('svg')[0];
+      currentBlob.parentNode.removeElement(currentBlob);
+      root.appendChild(newBlob);
+    });
+    const randomShapeButton = document.getElementById("random-blob");
+    randomShapeButton.addEventListener("click", function(){
+      const randomBlob = generateBlob();
+      const currentBlob = document.getElementsByTagName('svg')[0];
+      currentBlob.parentNode.removeElement(currentBlob);
+      root.appendChild(randomBlob);
+    })
+  </script>
+</html>
